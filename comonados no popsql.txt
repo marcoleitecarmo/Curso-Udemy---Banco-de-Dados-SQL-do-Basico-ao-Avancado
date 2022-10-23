@@ -1,0 +1,51 @@
+Operador WHERE e ORDER BY
+
+-- use sakila;
+-- select actor_id, first_name, last_name from actor
+-- where actor_id <= 10
+-- order by first_name
+
+use sakila;
+select 
+    customer_id,
+    amount,
+    amount - (amount * 10) as '10% desconto'
+ from payment
+ where customer_id = 1
+
+-------------------------------------------------------------
+Operador WHERE
+
+use sakila;
+-- select * from payment
+-- where amount = 0.99
+-- where amount <= 0.99
+
+-- order by amount desc
+-- where amount != 00.99
+
+select * from address
+-- where district = 'California'
+where district = 'Texas'
+
+---------------------------------------------------------------------
+Operadores: AND, OR e NOT
+
+use sakila;
+-- select * from customer
+-- where store_id = 1 and active =  0
+
+select * from payment
+-- where staff_id = 1 and amount = 0.99
+-- where staff_id = 1 or amount = 0.99
+-- WHERE staff_id = 1 AND amount = 0.99 AND customer_id < 10
+-- WHERE NOT staff_id = 1 AND amount = 0.99 AND customer_id < 10
+-- WHERE NOT staff_id = 1 AND NOT amount = 0.99 AND customer_id < 10
+WHERE NOT staff_id = 1 AND amount != 0.99 AND customer_id < 10
+
+---------------------------------------------------------------------------
+Operador IN
+
+USE sakila;
+select * from address
+WHERE district IN ('Alberta', 'Texas', 'California');
